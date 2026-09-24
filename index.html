@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mowgli · Suport hrană pentru pisici și căței · LUMINISHA</title>
+<meta name="description" content="Suportul ergonomic Mowgli ridică bolurile la înălțimea potrivită. Oțel carbon tăiat laser, două boluri din inox incluse. Trei mărimi: S, M, L.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="assets/logo-onyellow.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="preload" as="image" href="assets/mowgli-m-1.jpg">
+<style>
+:root{
+  /* Culori din logo */
+  --yellow:#F5CE48;
+  --yellow-deep:#E9BD2C;
+  --ink:#191818;
+  --ink-2:#4A4846;
+  --ink-3:#6E6B67;
+  /* Fundal alb: fotografiile au fundal alb și se contopesc cu pagina */
+  --bg:#FFFFFF;
+  --soft:#F5F4F1;
+  --line:#DDDBD6;
+  --line-2:#ECEAE6;
+  --dark:#191818;
+  --dark-2:#232221;
+  --on-dark:#F4F4F0;
+  --on-dark-2:#B9B6B0;
+
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-move:cubic-bezier(.65,0,.35,1);
+  --ease-drawer:cubic-bezier(.32,.72,0,1);
+
+  --r:2px;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1440px;
+  --header:72px;
+
+  --f-sans:"Archivo",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header) + 16px);scrollbar-color:#B5B2AC transparent;scrollbar-width:thin}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+::selection{background:var(--yellow);color:var(--ink)}
+input,textarea{caret-color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:var(--r)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 14px;border-radius:var(--r);transition:top .2s var(--ease-out)}
+.skip:focus{top:12px}
+.display{margin:0;font-stretch:125%;font-weight:850;letter-spacing:-.035em;line-height:.95;text-wrap:balance}
+.h2{margin:0;font-stretch:122%;font-weight:800;font-size:clamp(2.2rem,5vw,4.4rem);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s ease}
+.site-header.is-scrolled{border-bottom-color:var(--line-2)}
+.site-header .wrap{height:var(--header);display:flex;align-items:center;gap:36px;max-width:none}
+.brand{margin-right:auto;display:block;line-height:0}
+.brand img{height:44px;width:auto}
+.nav{display:flex;gap:30px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;color:var(--ink-2);padding:8px 0;position:relative;transition:color .15s ease}
+.nav a[aria-current="page"]{color:var(--ink)}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:3px;background:var(--yellow)}
+@media (hover:hover) and (pointer:fine){.nav a:hover{color:var(--ink)}}
+.icon-btn{display:inline-grid;place-items:center;width:42px;height:42px;border:0;background:none;border-radius:var(--r);cursor:pointer;position:relative;transition:transform .16s var(--ease-out),background-color .15s ease}
+.icon-btn i{font-size:22px}
+.icon-btn:active{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){.icon-btn:hover{background:rgba(25,24,24,.06)}}
+.cart-count{position:absolute;top:3px;right:1px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--yellow);color:var(--ink);font:600 11px/18px var(--f-mono);text-align:center;transform:scale(0);opacity:0;transition:transform .3s var(--ease-out),opacity .2s ease}
+.cart-count.has-items{transform:scale(1);opacity:1}
+.cart-count.bump{animation:bump .4s var(--ease-out)}
+@keyframes bump{40%{transform:scale(1.28)}}
+.menu-btn{display:none}
+@media (max-width:767px){.nav{display:none}.menu-btn{display:inline-grid}.site-header .wrap{gap:2px}.brand img{height:36px}:root{--header:64px}}
+
+/* ---------- Product top: gallery bleeds to the left edge ---------- */
+.pdp{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-bottom:clamp(56px,7vw,112px)}
+@media (min-width:1024px){
+  .pdp{grid-template-columns:minmax(0,1.45fr) minmax(380px,1fr);gap:0;align-items:start}
+  .buy{padding:40px var(--gutter) 0 clamp(40px,4.5vw,80px);max-width:640px}
+}
+.gallery{min-width:0}
+.stage{position:relative;background:#fff}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;transition:opacity .22s ease,filter .22s ease}
+.track::-webkit-scrollbar{display:none}
+.track.is-swapping{opacity:0;filter:blur(6px)}
+.slide{flex:0 0 100%;scroll-snap-align:start;aspect-ratio:3/2;margin:0;cursor:zoom-in}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide.is-spec img{object-fit:contain;padding:3%}
+.stage-nav{position:absolute;inset:auto var(--gutter) 20px auto;display:flex;gap:6px}
+.stage-nav button{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);background:#fff;border-radius:var(--r);cursor:pointer;transition:transform .16s var(--ease-out),background-color .15s ease,opacity .2s ease,border-color .15s ease}
+.stage-nav button:active{transform:scale(.94)}
+.stage-nav button:disabled{opacity:.35;cursor:default}
+.stage-nav i{font-size:18px}
+@media (hover:hover) and (pointer:fine){.stage-nav button:not(:disabled):hover{background:var(--yellow);border-color:var(--yellow)}}
+.thumbs{display:grid;grid-template-columns:repeat(7,minmax(64px,1fr));gap:8px;margin-top:10px;padding-inline:var(--gutter) 0;overflow-x:auto;scrollbar-width:none}
+.thumbs::-webkit-scrollbar{display:none}
+.thumb{position:relative;padding:0;border:0;background:var(--soft);border-radius:var(--r);aspect-ratio:3/2;cursor:pointer;overflow:hidden;opacity:.6;transition:opacity .2s ease}
+.thumb img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+.thumb::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--yellow);transform:scaleY(0);transform-origin:bottom;transition:transform .25s var(--ease-out)}
+.thumb[aria-current="true"]{opacity:1}
+.thumb[aria-current="true"]::after{transform:none}
+@media (hover:hover) and (pointer:fine){.thumb:hover{opacity:1}}
+@media (max-width:767px){
+  .thumbs{grid-template-columns:repeat(7,72px);padding-inline:var(--gutter)}
+  .stage-nav{display:none}
+}
+@media (max-width:1023px){.buy{padding-inline:var(--gutter)}}
+
+/* Buy box */
+.buy{min-width:0}
+@media (min-width:1024px){.buy-inner{position:sticky;top:calc(var(--header) + 32px)}}
+.crumbs{font-size:13px;color:var(--ink-3);margin-bottom:28px}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.crumbs li+li::before{content:"/";margin-right:8px;color:var(--line)}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--ink)}
+.buy-kind{margin:0 0 8px;color:var(--ink-2);font-size:15px}
+.buy h1{font-size:clamp(3.2rem,6vw,5.6rem)}
+.buy-lede{margin:18px 0 0;max-width:40ch;color:var(--ink-2);font-size:17px;line-height:1.5;text-wrap:pretty}
+.price-row{display:flex;align-items:baseline;gap:12px;margin-top:28px}
+.price{font-stretch:115%;font-size:32px;font-weight:750;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price-note{font-size:13px;color:var(--ink-3)}
+.field-head{display:flex;justify-content:space-between;align-items:baseline;margin-top:28px;margin-bottom:10px;font-size:14px}
+.field-head legend{font-weight:600;padding:0}
+.field-head a{color:var(--ink-2);font-size:13px}
+.field-head a:hover{color:var(--ink)}
+
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.seg{position:relative;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:3px;isolation:isolate}
+.seg-ind{position:absolute;z-index:-1;top:3px;bottom:3px;left:3px;width:calc((100% - 6px) / 3);background:var(--yellow);border-radius:1px;transform:translateX(calc(var(--i,1) * 100%));transition:transform .32s var(--ease-move)}
+.seg label{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:66px;cursor:pointer;border-radius:1px;user-select:none;-webkit-tap-highlight-color:transparent}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg .sz{font-stretch:125%;font-weight:850;font-size:22px;line-height:1;transition:transform .16s var(--ease-out)}
+.seg .sz-sub{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);transition:color .2s ease}
+.seg label:has(input:checked) .sz-sub{color:var(--ink)}
+.seg label:has(input:focus-visible){outline:2px solid var(--ink);outline-offset:2px}
+.seg label:active .sz{transform:scale(.94)}
+.seg-sm label{min-height:46px;flex-direction:row;gap:8px}
+.seg-sm .sz{font-size:17px}
+
+.dims{margin:12px 0 0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2)}
+.dims span{white-space:nowrap}
+.dims b{color:var(--ink);font-weight:500}
+.buy-actions{display:grid;grid-template-columns:auto 1fr;gap:10px;margin-top:28px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:var(--r);background:#fff;height:58px}
+.qty button{width:44px;height:100%;border:0;background:none;cursor:pointer;display:grid;place-items:center;transition:transform .16s var(--ease-out)}
+.qty button:active{transform:scale(.9)}
+.qty button:disabled{opacity:.3;cursor:default}
+.qty output{min-width:28px;text-align:center;font-family:var(--f-mono);font-size:15px}
+
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 28px;border:0;border-radius:var(--r);background:var(--yellow);color:var(--ink);font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;white-space:nowrap;overflow:hidden;transition:transform .16s var(--ease-out),background-color .2s ease}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--yellow-deep)}}
+.btn .btn-label{display:inline-flex;align-items:center;gap:10px;transition:opacity .2s ease,filter .2s ease,transform .25s var(--ease-out)}
+.btn .btn-done{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;opacity:0;filter:blur(4px);transform:translateY(6px);transition:opacity .2s ease,filter .2s ease,transform .25s var(--ease-out)}
+.btn.is-done .btn-label{opacity:0;filter:blur(4px);transform:translateY(-6px)}
+.btn.is-done .btn-done{opacity:1;filter:blur(0);transform:none}
+.btn i{font-size:19px}
+.btn-dark{background:var(--ink);color:#fff}
+@media (hover:hover) and (pointer:fine){.btn-dark:hover{background:#34322F}}
+.btn-ghost{background:transparent;border:1px solid var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn-ghost:hover{background:var(--yellow);border-color:var(--yellow)}}
+
+.stock{display:flex;align-items:center;gap:8px;margin:14px 0 0;font-size:14px;color:var(--ink-2)}
+.stock i{font-size:18px;color:var(--ink)}
+.included{list-style:none;margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);display:grid;gap:12px;font-size:15px}
+.included li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.included i{font-size:20px;margin-top:1px}
+.acc{margin-top:24px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;font-weight:600;font-size:15px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary i{transition:transform .25s var(--ease-out)}
+.acc details[open] summary i{transform:rotate(45deg)}
+.acc .acc-body{padding:0 0 20px;color:var(--ink-2);font-size:15px;max-width:52ch}
+.acc .acc-body p{margin:0 0 10px}
+.acc details::details-content{block-size:0;overflow:clip;transition:block-size .3s var(--ease-out),content-visibility .3s allow-discrete}
+.acc details[open]::details-content{block-size:auto}
+@supports (interpolate-size:allow-keywords){:root{interpolate-size:allow-keywords}}
+
+/* ---------- Yellow statement band ---------- */
+.band{background:var(--yellow);padding-block:clamp(72px,10vw,150px);overflow:hidden}
+.band .display{font-size:clamp(2.8rem,8.4vw,8.2rem);max-width:12ch}
+.band p{margin:28px 0 0;max-width:46ch;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.5;color:#3A3526}
+
+/* ---------- Story + full-bleed lineup ---------- */
+.story{padding-top:clamp(88px,11vw,168px)}
+.story-grid{display:grid;gap:28px;margin-top:40px}
+@media (min-width:900px){.story-grid{grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,104px)}}
+.prose p{margin:0 0 1.1em;font-size:17.5px;line-height:1.65;color:var(--ink-2);max-width:62ch;text-wrap:pretty}
+.prose p.lead{font-size:clamp(1.25rem,1.9vw,1.55rem);line-height:1.45;color:var(--ink);font-weight:450}
+.bleed{margin:clamp(40px,6vw,88px) 0 0;position:relative;background:#fff}
+.bleed img{width:100%;height:auto}
+.lineup img{aspect-ratio:21/9;object-fit:cover;object-position:50% 52%}
+@media (max-width:767px){.lineup img{aspect-ratio:4/3;object-position:50% 50%}}
+.lineup-cap{display:grid;grid-template-columns:repeat(3,1fr);max-width:1180px;margin:-1.5vw auto 0;padding-inline:var(--gutter);text-align:center;font-size:13px;color:var(--ink-3)}
+.lineup-cap b{display:block;color:var(--ink);font-stretch:125%;font-size:clamp(20px,2.4vw,32px);font-weight:850;line-height:1.1}
+
+/* ---------- Benefits: full-width horizontal track ---------- */
+.benefits{padding-block:clamp(96px,12vw,176px) clamp(72px,9vw,128px)}
+.ben-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.ben-nav{display:flex;gap:8px}
+.ben-nav button{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--ink);background:#fff;border-radius:var(--r);cursor:pointer;transition:transform .16s var(--ease-out),background-color .15s ease,opacity .2s ease,border-color .15s ease}
+.ben-nav button:active{transform:scale(.94)}
+.ben-nav button:disabled{opacity:.25;cursor:default}
+.ben-nav i{font-size:20px}
+@media (hover:hover) and (pointer:fine){.ben-nav button:not(:disabled):hover{background:var(--yellow);border-color:var(--yellow)}}
+.ben-track{--pad:max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));display:flex;gap:clamp(16px,2vw,28px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:48px var(--pad) 8px;scrollbar-width:none;overscroll-behavior-x:contain}
+.ben-track::-webkit-scrollbar{display:none}
+.ben-card{flex:0 0 min(78vw,860px);scroll-snap-align:start;margin:0}
+.ben-card .ph-img{background:var(--soft);aspect-ratio:3/2;overflow:hidden}
+.ben-card img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform .8s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.ben-card:hover img{transform:scale(1.025)}}
+.ben-card figcaption{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding-top:22px;max-width:620px}
+.ben-card h3{margin:0;font-stretch:118%;font-weight:780;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.025em;line-height:1.1}
+.ben-card p{margin:0;color:var(--ink-2);font-size:16.5px;line-height:1.6;max-width:54ch}
+.ben-progress{margin-top:36px;height:3px;background:var(--line-2);position:relative;overflow:hidden}
+.ben-progress span{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(.2);transition:transform .35s var(--ease-out)}
+
+/* ---------- Profile: text + image bleeding to the right edge ---------- */
+.profile{display:grid;align-items:center;background:#fff}
+.profile img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:55% 55%}
+.profile-copy{padding:clamp(40px,6vw,88px) var(--gutter)}
+.profile-copy p{margin:18px 0 0;color:var(--ink-2);font-size:17px;line-height:1.6;max-width:40ch}
+.profile-tag{display:inline-flex;margin-top:28px;align-items:baseline;gap:10px;background:var(--yellow);padding:10px 14px;border-radius:var(--r);font-weight:650}
+.profile-tag .num{font-size:15px}
+@media (min-width:900px){
+  .profile{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .profile-copy{padding-left:max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));padding-right:clamp(24px,4vw,64px)}
+  .profile img{order:2;aspect-ratio:auto;height:min(86vh,50vw);min-height:520px}
+}
+@media (max-width:899px){.profile img{order:-1}}
+
+/* ---------- Reviews: polaroid wall ---------- */
+.reviews{padding-block:clamp(96px,12vw,176px);background:var(--soft);overflow:hidden}
+.rev-names{max-width:16ch;font-size:clamp(2.4rem,5.6vw,5.2rem)}
+.rev-names button{all:unset;cursor:pointer;background:linear-gradient(var(--yellow),var(--yellow)) 0 88%/100% 30% no-repeat;transition:background-size .3s var(--ease-out)}
+.rev-names button:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+@media (hover:hover) and (pointer:fine){.rev-names button:hover{background-size:100% 85%}}
+.rev-names .nw{white-space:nowrap}
+.rev-sub{margin:22px 0 0;color:var(--ink-2);font-size:17px;max-width:52ch}
+.pet-wall{display:grid;gap:clamp(24px,3vw,44px);margin-top:56px;padding-bottom:12px}
+@media (min-width:1024px){
+  .pet-wall{grid-template-columns:1.25fr 1fr 1fr;align-items:start}
+  .pet-wall .pet-card:first-child{grid-row:span 2}
+  .pet-wall .pet-card:first-child .pet-photo{aspect-ratio:4/5}
+  .pet-wall .pet-card:first-child .pet-title{font-size:clamp(1.6rem,2.2vw,2.1rem)}
+  .pet-wall .pet-card:first-child blockquote p:not(.pet-title){font-size:17px}
+  .pet-wall .pet-card:nth-child(3),.pet-wall .pet-card:nth-child(5){margin-top:48px}
+}
+@media (max-width:1023px){
+  .pet-wall{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding:16px var(--gutter) 28px;scroll-padding-inline:var(--gutter);scrollbar-width:none}
+  .pet-wall::-webkit-scrollbar{display:none}
+  .pet-wall .pet-card{flex:0 0 min(82vw,380px);scroll-snap-align:start}
+}
+.pet-card{--rot:-1.4deg;margin:0;background:#fff;padding:14px 14px 26px;border-radius:var(--r);box-shadow:0 1px 2px rgba(25,24,24,.06),0 16px 36px -14px rgba(25,24,24,.22);transform:rotate(var(--rot));transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out)}
+.pet-card:nth-child(2){--rot:1.3deg}
+.pet-card:nth-child(3){--rot:-.7deg}
+.pet-card:nth-child(4){--rot:.9deg}
+.pet-card:nth-child(5){--rot:-1.1deg}
+@media (hover:hover) and (pointer:fine){.pet-card:hover{transform:rotate(0) translateY(-6px);box-shadow:0 2px 4px rgba(25,24,24,.06),0 26px 48px -16px rgba(25,24,24,.28)}}
+.pet-card.is-hit{animation:hit .7s var(--ease-out)}
+@keyframes hit{30%{transform:rotate(0) translateY(-10px)}}
+.pet-photo{position:relative;aspect-ratio:5/4;background:var(--yellow);overflow:hidden;display:grid;place-items:center}
+.pet-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pet-initial{position:absolute;right:-4%;bottom:-18%;font-stretch:125%;font-weight:900;font-size:16rem;line-height:1;color:rgba(25,24,24,.09)}
+.pet-name{position:relative;font-stretch:125%;font-weight:850;font-size:clamp(2.2rem,3.6vw,3.4rem);letter-spacing:-.035em}
+.pet-card figcaption{padding:18px 6px 0}
+.pet-tag{display:block;font-size:13px;color:var(--ink-3)}
+.pet-card blockquote{margin:10px 0 0}
+.pet-title{margin:0 0 10px;font-stretch:118%;font-weight:780;font-size:20px;line-height:1.2;letter-spacing:-.015em}
+.pet-card blockquote p:not(.pet-title){margin:0;font-size:15px;line-height:1.6;color:var(--ink-2)}
+.pet-card cite{display:block;margin-top:16px;font-style:normal;font-weight:650;font-size:14px}
+.rev-link{margin-left:auto;font-size:13px;color:var(--ink-2)}
+.rev-link:hover{color:var(--ink)}
+
+/* ---------- Size guide (dark, blueprint) ---------- */
+.guide{background:var(--dark);color:var(--on-dark);padding-block:clamp(96px,12vw,176px)}
+.guide ::selection{background:var(--yellow);color:var(--ink)}
+.guide :focus-visible{outline-color:var(--yellow)}
+.guide-head{display:grid;gap:20px;max-width:780px}
+.guide-head p{margin:0;color:var(--on-dark-2);font-size:17px;line-height:1.6;max-width:60ch}
+.guide-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:44px}
+.guide-bar fieldset{flex:0 1 420px}
+.guide .seg{background:var(--dark-2);border-color:#3A3836}
+.guide .seg .sz{color:var(--on-dark)}
+.guide .seg .sz-sub{color:var(--on-dark-2)}
+.guide .seg label:has(input:checked) .sz,.guide .seg label:has(input:checked) .sz-sub{color:var(--ink)}
+.guide .seg label:has(input:focus-visible){outline-color:var(--yellow)}
+.legend{display:flex;gap:20px;font-size:13px;color:var(--on-dark-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend .sw{width:22px;height:0;border-top:2px solid var(--yellow)}
+.legend .sw.ghost{border-top:1px dashed #77736D}
+.drawing{margin-top:28px;border:1px solid #33312E;border-radius:var(--r);padding:clamp(12px,3vw,44px);background-image:linear-gradient(#262422 1px,transparent 1px),linear-gradient(90deg,#262422 1px,transparent 1px);background-size:33px 33px;background-position:-1px -1px}
+.drawing svg{display:block;width:100%;height:auto;overflow:visible}
+.drawing .ghost{fill:none;stroke:#77736D;stroke-width:1;stroke-dasharray:4 4;vector-effect:non-scaling-stroke;transition:opacity .3s ease}
+.drawing .solid{fill:rgba(245,206,72,.08);stroke:var(--yellow);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.drawing .hole{fill:var(--dark);stroke:var(--on-dark);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.drawing .bowl{fill:none;stroke:#77736D;stroke-width:1;vector-effect:non-scaling-stroke}
+.drawing .floor{stroke:#77736D;stroke-width:1;vector-effect:non-scaling-stroke}
+.drawing .dim{stroke:var(--on-dark-2);stroke-width:1;vector-effect:non-scaling-stroke;fill:none}
+.drawing .dim-t{font:500 12px var(--f-mono);fill:var(--on-dark);font-variant-numeric:tabular-nums}
+.drawing .cap{font:600 12px var(--f-sans);fill:var(--on-dark-2);letter-spacing:.02em}
+.drawing .spark{fill:#fff;opacity:0;filter:drop-shadow(0 0 6px var(--yellow))}
+.drawing .dims-g{transition:opacity .25s ease}
+.drawing .dims-g.is-hidden{opacity:0}
+.spec-table-wrap{margin-top:64px;overflow-x:auto}
+.spec-table{width:100%;min-width:520px;border-collapse:collapse;font-size:15px}
+.spec-table th,.spec-table td{padding:11px 16px;text-align:left;font-weight:400}
+.spec-table thead th{font-stretch:125%;font-weight:850;font-size:22px;padding-bottom:14px;border-bottom:1px solid var(--on-dark)}
+.spec-table thead th:first-child{font-stretch:100%;font-size:14px;font-weight:600;color:var(--on-dark-2)}
+.spec-table tbody th{color:var(--on-dark-2)}
+.spec-table td{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:14px}
+.spec-table .grp th{padding-top:26px;font-weight:650;color:var(--on-dark);font-size:13px}
+.spec-table col.is-on{background:var(--dark-2)}
+.spec-table thead th.is-on{color:var(--yellow)}
+.spec-table th:not(:first-child),.spec-table td{width:22%}
+.common{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px 40px;margin:56px 0 0;padding-top:32px;border-top:1px solid #3A3836}
+.common dt{font-size:13px;color:var(--on-dark-2);margin-bottom:6px}
+.common dd{margin:0;font-size:16px;font-weight:500}
+
+/* ---------- Craft: full-bleed photo + yellow plate ---------- */
+.craft{position:relative;background:#fff}
+.craft img{width:100%;height:min(92vh,62vw);min-height:420px;object-fit:cover;object-position:40% 50%}
+.craft-plate{position:absolute;right:0;bottom:0;background:var(--yellow);padding:clamp(28px,4.5vw,64px) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))) clamp(28px,4.5vw,64px) clamp(24px,4.5vw,64px);max-width:min(640px,92vw)}
+.craft-plate p{margin:18px 0 0;font-size:17px;line-height:1.6;color:#3A3526;max-width:44ch}
+@media (max-width:767px){
+  .craft img{height:auto;min-height:0;aspect-ratio:4/5;object-position:64% 40%}
+  .craft-plate{position:relative;max-width:none;padding:32px var(--gutter) 40px}
+}
+
+/* ---------- Origin story (full-bleed image + text) + made in Romania ---------- */
+.origin{background:#fff}
+.origin-img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 55%;background:#fff}
+@media (max-width:767px){.origin-img{aspect-ratio:4/3}}
+.origin-body{display:grid;gap:40px;padding-block:clamp(56px,7vw,104px) clamp(96px,12vw,168px)}
+@media (min-width:1024px){.origin-body{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,6vw,104px);align-items:start}.origin-body .h2{position:sticky;top:calc(var(--header) + 32px)}}
+.signoff{margin:8px 0 0;font-stretch:118%;font-weight:780;font-size:clamp(1.3rem,2vw,1.6rem);letter-spacing:-.02em}
+.made{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-top:44px;background:var(--yellow);padding:22px 24px;border-radius:var(--r)}
+.made-mark{width:68px;height:68px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-stretch:125%;font-weight:850;font-size:17px}
+.made b{display:block;font-stretch:118%;font-size:21px;font-weight:800;letter-spacing:-.015em}
+.made span{color:#3A3526;font-size:15px}
+
+/* ---------- Related ---------- */
+.related{padding-block:clamp(96px,12vw,168px)}
+.rel-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.rel-head a{font-size:15px;color:var(--ink-2)}
+.rel-list{list-style:none;margin:40px 0 0;padding:0;border-top:2px solid var(--ink)}
+.rel-list a{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;isolation:isolate}
+.rel-list a::before{content:"";position:absolute;inset:0 calc(var(--gutter) * -1);background:var(--yellow);z-index:-1;transform:scaleY(0);transform-origin:bottom;transition:transform .35s var(--ease-out)}
+.rel-name{display:block;font-stretch:125%;font-weight:850;font-size:clamp(1.8rem,4vw,3.2rem);letter-spacing:-.035em;line-height:1}
+.rel-kind{display:block;margin-top:8px;color:var(--ink-2);font-size:15px}
+.rel-list i{font-size:28px;transition:transform .3s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .rel-list a:hover::before{transform:none}
+  .rel-list a:hover i{transform:translateX(6px)}
+}
+
+/* ---------- Footer (yellow, original logo colours) ---------- */
+.site-footer{background:var(--yellow);color:var(--ink);padding-block:80px 32px;font-size:14px}
+.site-footer a{text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.foot-grid{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.foot-logo img{width:min(300px,70vw);height:auto}
+.foot-grid h2{margin:0 0 14px;font-size:13px;font-weight:700}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.foot-grid ul a{color:#3A3526}
+.foot-legal{margin-top:64px;padding-top:24px;border-top:1px solid rgba(25,24,24,.2);display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;color:#3A3526;font-size:13px}
+.foot-legal nav{display:flex;flex-wrap:wrap;gap:12px 24px}
+.site-footer :focus-visible{outline-color:var(--ink)}
+
+/* ---------- Mobile buy bar ---------- */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:35;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:14px;transform:translateY(100%);transition:transform .35s var(--ease-drawer)}
+.buybar.is-on{transform:none}
+.buybar .bb-meta{flex:1;min-width:0;line-height:1.25}
+.buybar .bb-name{font-weight:650;font-size:14px}
+.buybar .bb-price{font-size:13px;color:var(--ink-2)}
+.buybar .btn{height:48px;padding:0 20px;font-size:15px}
+@media (min-width:1024px){.buybar{display:none}}
+
+/* ---------- Drawer ---------- */
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(25,24,24,.36);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.scrim.is-on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:61;width:min(440px,100%);background:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .45s var(--ease-drawer);box-shadow:-12px 0 40px rgba(25,24,24,.14)}
+.drawer.is-on{transform:none}
+.drawer[hidden]{display:flex}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 16px 24px;border-bottom:1px solid var(--line)}
+.drawer-head h2{margin:0;font-size:17px;font-weight:700}
+.drawer-body{flex:1;overflow:auto;padding:8px 24px}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-2);align-items:start}
+.line img{background:var(--soft);border-radius:var(--r);aspect-ratio:3/2;object-fit:cover;mix-blend-mode:multiply}
+.line-name{font-weight:650}
+.line-meta{font-size:13px;color:var(--ink-2);margin-top:2px}
+.line-price{font-family:var(--f-mono);font-size:14px}
+.line-rm{margin-top:8px;padding:0;border:0;background:none;font-size:13px;color:var(--ink-2);text-decoration:underline;cursor:pointer}
+.empty{padding:48px 0;text-align:center;color:var(--ink-2)}
+.empty i{font-size:36px;color:var(--ink-3)}
+.empty p{margin:12px 0 20px}
+.drawer-foot{padding:20px 24px calc(20px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--soft)}
+.subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;font-weight:650}
+.subtotal .num{font-size:18px}
+.drawer-foot small{display:block;color:var(--ink-3);margin-bottom:16px}
+.drawer-foot .btn{width:100%}
+
+/* ---------- Lightbox ---------- */
+.lightbox{padding:0;border:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:#fff;opacity:0;transition:opacity .25s ease,overlay .25s allow-discrete,display .25s allow-discrete}
+.lightbox[open]{opacity:1}
+@starting-style{.lightbox[open]{opacity:0}}
+.lightbox::backdrop{background:#fff}
+.lb-img{width:100%;height:100%;object-fit:contain;padding:clamp(8px,4vw,56px)}
+.lb-close,.lb-prev,.lb-next{position:absolute;border:1px solid var(--line);background:#fff}
+.lb-close{top:16px;right:16px}
+.lb-prev{left:16px;top:50%;translate:0 -50%}
+.lb-next{right:16px;top:50%;translate:0 -50%}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .track.is-swapping{filter:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#produs">Sari la produs</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="LUMINISHA, pagina principală"><img src="assets/logo-dark.png" alt="LUMINISHA, light in motion" width="495" height="165"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#" aria-current="page">Shop</a>
+      <a href="#">Filozofia</a>
+      <a href="#">Contact</a>
+    </nav>
+    <button class="icon-btn" type="button" aria-label="Caută"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+    <button class="icon-btn" type="button" id="cartBtn" aria-label="Coș de cumpărături, 0 produse" aria-haspopup="dialog" aria-controls="drawer">
+      <i class="ph ph-handbag" aria-hidden="true"></i><span class="cart-count" id="cartCount" aria-hidden="true">0</span>
+    </button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Meniu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+</header>
+
+<main id="produs">
+  <div class="pdp">
+    <section class="gallery" aria-label="Galerie foto">
+      <div class="stage">
+        <div class="track" id="track" tabindex="0" aria-label="Fotografii produs, derulează orizontal"></div>
+        <div class="stage-nav">
+          <button type="button" id="prev" aria-label="Fotografia anterioară"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+          <button type="button" id="next" aria-label="Fotografia următoare"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="thumbs" id="thumbs" role="group" aria-label="Miniaturi"></div>
+    </section>
+
+    <section class="buy" aria-labelledby="pname">
+      <div class="buy-inner">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol><li><a href="#">Acasă</a></li><li><a href="#">Shop</a></li><li aria-current="page">Mowgli</li></ol>
+        </nav>
+        <p class="buy-kind">Suport hrană pentru pisici și căței</p>
+        <h1 class="display" id="pname">Mowgli</h1>
+        <p class="buy-lede">Ridică bolurile la o înălțime potrivită, ca animăluțul să mănânce și să bea într-o poziție mai naturală.</p>
+
+        <div class="price-row">
+          <!-- PREȚURI PLACEHOLDER: de înlocuit în obiectul SIZES din script -->
+          <span class="price" id="price" aria-live="polite">229 lei</span>
+          <span class="price-note">TVA inclus</span>
+          <a class="rev-link" href="#recenzii">5 recenzii</a>
+        </div>
+
+        <fieldset>
+          <div class="field-head"><legend>Mărime</legend><a href="#ghid">Ghid de mărimi</a></div>
+          <div class="seg" data-seg>
+            <span class="seg-ind" aria-hidden="true"></span>
+            <label><input type="radio" name="size" value="s"><span class="sz">S</span><span class="sz-sub">33 cm</span></label>
+            <label><input type="radio" name="size" value="m" checked><span class="sz">M</span><span class="sz-sub">37,5 cm</span></label>
+            <label><input type="radio" name="size" value="l"><span class="sz">L</span><span class="sz-sub">46,5 cm</span></label>
+          </div>
+        </fieldset>
+        <p class="dims num" id="dims" aria-live="polite"></p>
+
+        <div class="buy-actions">
+          <div class="qty" role="group" aria-label="Cantitate">
+            <button type="button" id="qMinus" aria-label="Scade cantitatea"><i class="ph ph-minus" aria-hidden="true"></i></button>
+            <output id="qty" aria-live="polite">1</output>
+            <button type="button" id="qPlus" aria-label="Crește cantitatea"><i class="ph ph-plus" aria-hidden="true"></i></button>
+          </div>
+          <button class="btn" type="button" id="addBtn">
+            <span class="btn-label"><i class="ph ph-handbag" aria-hidden="true"></i>Adaugă în coș</span>
+            <span class="btn-done" aria-hidden="true"><i class="ph ph-check" aria-hidden="true"></i>Adăugat</span>
+          </button>
+        </div>
+        <!-- STOC / TERMEN: placeholder, de confirmat -->
+        <p class="stock"><i class="ph ph-package" aria-hidden="true"></i>În stoc. Se expediază în 2-4 zile lucrătoare.</p>
+
+        <ul class="included">
+          <li><i class="ph ph-bowl-food" aria-hidden="true"></i><span>Două boluri din inox incluse, <span class="num" id="bowlInc">Ø 16 cm</span></span></li>
+          <li><i class="ph ph-arrow-down-right" aria-hidden="true"></i><span>Blat înclinat spre animal, cu 3 cm mai jos în față</span></li>
+          <li><i class="ph ph-lightning" aria-hidden="true"></i><span>Oțel carbon tăiat laser, vopsit electrostatic negru mat</span></li>
+          <li><i class="ph ph-seal-check" aria-hidden="true"></i><span>Fabricat în România</span></li>
+        </ul>
+
+        <div class="acc">
+          <details>
+            <summary>Livrare și retur <i class="ph ph-plus" aria-hidden="true"></i></summary>
+            <div class="acc-body">
+              <!-- LIVRARE: termene placeholder, de confirmat -->
+              <p>Livrare prin curier în toată România. Comanda se expediază în 2-4 zile lucrătoare.</p>
+              <p>Poți returna produsul în 14 zile de la primire, fără să oferi un motiv.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Întreținere <i class="ph ph-plus" aria-hidden="true"></i></summary>
+            <div class="acc-body">
+              <p>Bolurile din inox se scot ușor și se spală cu apă caldă și detergent.</p>
+              <p>Suportul se șterge cu o lavetă umedă. Evită bureții abrazivi, ca să păstrezi finisajul mat.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Yellow statement -->
+  <section class="band" aria-labelledby="bandH">
+    <div class="wrap">
+      <h2 class="display" id="bandH">Poziție potrivită. Masă mai bună.</h2>
+      <p>Suportul ergonomic LUMINISHA ridică bolurile la o înălțime mai potrivită, pentru o masă într-o poziție mai naturală și mai confortabilă.</p>
+    </div>
+  </section>
+
+  <!-- Story + full-bleed lineup -->
+  <section class="story" aria-labelledby="storyH">
+    <div class="wrap">
+      <h2 class="h2" id="storyH">Pentru a le hrăni corect.</h2>
+      <div class="story-grid prose">
+        <div>
+          <p class="lead">Există animăluțe care mănâncă elegant și altele care transformă fiecare masă într-un mic exercițiu de dezordine. Indiferent din ce categorie face parte al tău, felul în care stă atunci când mănâncă și bea contează.</p>
+        </div>
+        <div>
+          <p>Atunci când bolurile sunt așezate direct pe podea, poziția nu este întotdeauna cea mai confortabilă. Pentru tine, suportul înseamnă mai puțină aplecare după boluri plecate la plimbare prin bucătărie. Pentru animăluț, un loc de hrănire mai stabil, pe care îl poate folosi zi de zi.</p>
+          <p>Realizat din metal și construit pentru utilizare practică, suportul transformă un gest obișnuit într-o experiență mai bine gândită. Pentru că și mesele de zi cu zi merită puțină ergonomie.</p>
+        </div>
+      </div>
+    </div>
+    <figure class="bleed lineup">
+      <img src="assets/mowgli-all.jpg" alt="Suportul Mowgli în cele trei mărimi, L, M și S, așezate unul lângă altul" loading="lazy" width="1800" height="1200">
+      <figcaption class="lineup-cap"><span><b>L</b>15-18 cm</span><span><b>M</b>10-13 cm</span><span><b>S</b>6-9 cm</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- Benefits -->
+  <section class="benefits" aria-labelledby="benH">
+    <div class="wrap ben-head">
+      <h2 class="h2" id="benH">De ce o să vă placă</h2>
+      <div class="ben-nav">
+        <button type="button" id="benPrev" aria-label="Avantajul anterior"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+        <button type="button" id="benNext" aria-label="Avantajul următor"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="ben-track" id="benTrack" tabindex="0" aria-label="Avantaje, derulează orizontal"></div>
+    <div class="wrap"><div class="ben-progress" aria-hidden="true"><span id="benBar"></span></div></div>
+  </section>
+
+  <!-- Profile -->
+  <section class="profile" aria-labelledby="profH">
+    <img id="profImg" src="assets/mowgli-m-3.jpg" alt="Mowgli din profil: blatul coboară spre față" loading="lazy" width="1800" height="1200">
+    <div class="profile-copy">
+          <h2 class="h2" id="profH">Înclinat spre el.</h2>
+          <p>Blatul coboară ușor spre față, astfel încât bolurile vin spre animăluț, nu invers. Mai puțină aplecare, mai ales pentru cei mai în vârstă.</p>
+          <span class="profile-tag"><span class="num" id="profDims">13 → 10 cm</span><span>spate → față</span></span>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews" id="recenzii" aria-labelledby="revH">
+    <div class="wrap">
+      <h2 class="h2 rev-names" id="revH">La masă cu <span class="nw"><button type="button" data-pet="becksy">Becksy</button>,</span> <span class="nw"><button type="button" data-pet="kuky">Kuky</button>,</span> <span class="nw"><button type="button" data-pet="maggie">Maggie</button>,</span> <button type="button" data-pet="luna">Luna</button> și <button type="button" data-pet="bruno">Bruno</button></h2>
+      <p class="rev-sub">Ce spun cei care îl folosesc zi de zi. Apasă pe un nume ca să ajungi la povestea lui.</p>
+      <div class="pet-wall">
+        <figure class="pet-card" id="pet-becksy">
+          <div class="pet-photo">
+              <img src="assets/pets/becksy.jpg" alt="Becksy la masă, mâncând din suportul Mowgli" loading="lazy" decoding="async" style="object-position:64% 62%">
+          </div>
+          <figcaption>
+            <span class="pet-tag">Becksy, labrador, 11 ani</span>
+            <blockquote><p class="pet-title">„Foarte util, mai ales pentru un câine mai în vârstă”</p><p>L-am cumpărat pentru labradorul nostru, Becksy, în vârstă de 11 ani, care a început să aibă ceva probleme când se apleacă la bol. Acum ajunge mult mai ușor la mâncare și apă. Și mie îmi place pentru că este foarte stabil și nu mai împinge bolurile prin bucătărie.</p></blockquote>
+            <cite>Mihai Popescu</cite>
+          </figcaption>
+        </figure>
+        <figure class="pet-card" id="pet-kuky">
+          <div class="pet-photo">
+              <img src="assets/pets/kuky.jpg" alt="Kuky" loading="lazy" decoding="async" style="object-position:50% 40%">
+          </div>
+          <figcaption>
+            <span class="pet-tag">Kuky, campioană la mutat boluri</span>
+            <blockquote><p class="pet-title">„Nu mai găsesc bolul în alt colț al bucătăriei”</p><p>Kuky avea obiceiul să împingă bolul peste tot. Uneori îl găseam la câțiva metri de locul lui. Cu suportul acesta nu mai avem problema asta. Este greu, stă foarte bine pe podea și zona de masă arată mult mai ordonat.</p></blockquote>
+            <cite>Andreea M.</cite>
+          </figcaption>
+        </figure>
+        <figure class="pet-card" id="pet-maggie">
+          <div class="pet-photo">
+              <img src="assets/pets/maggie.jpg" alt="Maggie" loading="lazy" decoding="async" style="object-position:50% 35%">
+          </div>
+          <figcaption>
+            <span class="pet-tag">Maggie, s-a obișnuit din prima zi</span>
+            <blockquote><p class="pet-title">„Simplu și bine făcut”</p><p>Îmi plac obiectele care fac exact ce trebuie să facă și atât. Suportul este solid, bolurile stau bine și înălțimea este mult mai comodă pentru câine. Maggie s-a obișnuit imediat cu el și acum nici nu mai observăm că înainte mânca direct de pe podea.</p></blockquote>
+            <cite>Vlad Dumitrescu</cite>
+          </figcaption>
+        </figure>
+        <figure class="pet-card" id="pet-luna">
+          <div class="pet-photo">
+              <img src="assets/pets/luna.jpg" alt="Luna" loading="lazy" decoding="async" style="object-position:50% 40%">
+          </div>
+          <figcaption>
+            <span class="pet-tag">Luna, cățelușă</span>
+            <blockquote><p class="pet-title">„A fost o schimbare mică, dar se vede”</p><p>Nu mă gândeam că o să conteze atât de mult în rutina zilnică. Cățelușa mea, Luna, mănâncă mai comod, iar eu am mai puțină apă și mâncare împrăștiată în jurul bolurilor. Plus că suportul arată foarte bine și nu pare un obiect în plus prin casă.</p></blockquote>
+            <cite>Cristina D.</cite>
+          </figcaption>
+        </figure>
+        <figure class="pet-card" id="pet-bruno">
+          <div class="pet-photo">
+              <img src="assets/pets/bruno.jpg" alt="Bruno" loading="lazy" decoding="async" style="object-position:50% 40%">
+          </div>
+          <figcaption>
+            <span class="pet-tag">Bruno, foarte entuziasmat la ora mesei</span>
+            <blockquote><p class="pet-title">„Foarte stabil”</p><p>Am un câine destul de energic și mă așteptam să plimbe și suportul prin bucătărie. Bruno este foarte entuziasmat la ora mesei, dar suportul rămâne pe loc. Are greutate, este stabil și bolurile nu se plimbă prin toată bucătăria.</p></blockquote>
+            <cite>Răzvan Ionescu</cite>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Size guide -->
+  <section class="guide" id="ghid" aria-labelledby="guideH">
+    <div class="wrap">
+      <div class="guide-head">
+        <h2 class="h2" id="guideH">Alege înălțimea potrivită</h2>
+        <p>Desen la scară. Conturul galben e mărimea aleasă, cele punctate sunt celelalte două.</p>
+      </div>
+      <div class="guide-bar">
+        <fieldset>
+          <legend class="sr-only">Mărime în ghid</legend>
+          <div class="seg seg-sm" data-seg>
+            <span class="seg-ind" aria-hidden="true"></span>
+            <label><input type="radio" name="size2" value="s"><span class="sz">S</span><span class="sz-sub">6-9 cm</span></label>
+            <label><input type="radio" name="size2" value="m" checked><span class="sz">M</span><span class="sz-sub">10-13 cm</span></label>
+            <label><input type="radio" name="size2" value="l"><span class="sz">L</span><span class="sz-sub">15-18 cm</span></label>
+          </div>
+        </fieldset>
+        <div class="legend" aria-hidden="true"><span><i class="sw"></i>Mărimea aleasă</span><span><i class="sw ghost"></i>Celelalte mărimi</span></div>
+      </div>
+
+      <div class="drawing">
+        <svg id="drawing" viewBox="0 0 760 330" role="img" aria-labelledby="drawTitle">
+          <title id="drawTitle">Desen tehnic la scară: vedere de sus și profil lateral</title>
+          <text class="cap" x="40" y="20">Vedere de sus</text>
+          <text class="cap" x="500" y="20">Profil lateral</text>
+          <g id="ghostTop"></g>
+          <g id="ghostSide"></g>
+          <line class="floor" x1="480" x2="740" y1="262" y2="262"/>
+          <rect id="topRect" class="solid" rx="3"/>
+          <circle id="bowlA" class="bowl"/><circle id="bowlB" class="bowl"/>
+          <circle id="holeA" class="hole"/><circle id="holeB" class="hole"/>
+          <path id="sidePath" class="solid"/>
+          <g id="dimsG" class="dims-g"></g>
+          <circle id="spark" class="spark" r="4"/>
+        </svg>
+      </div>
+
+      <div class="spec-table-wrap">
+        <table class="spec-table" id="specTable">
+          <caption class="sr-only">Dimensiuni pe mărimi</caption>
+          <colgroup><col><col data-col="s"><col data-col="m"><col data-col="l"></colgroup>
+          <thead><tr><th scope="col">Dimensiuni</th><th scope="col" data-col="s">S</th><th scope="col" data-col="m">M</th><th scope="col" data-col="l">L</th></tr></thead>
+          <tbody>
+            <tr class="grp"><th scope="rowgroup" colspan="4">Gabarit</th></tr>
+            <tr><th scope="row">Lungime</th><td>33 cm</td><td>37,5 cm</td><td>46,5 cm</td></tr>
+            <tr><th scope="row">Lățime</th><td>18,5 cm</td><td>20,5 cm</td><td>25 cm</td></tr>
+            <tr><th scope="row">Înălțime față</th><td>6 cm</td><td>10 cm</td><td>15 cm</td></tr>
+            <tr><th scope="row">Înălțime spate</th><td>9 cm</td><td>13 cm</td><td>18 cm</td></tr>
+          </tbody>
+          <tbody>
+            <tr class="grp"><th scope="rowgroup" colspan="4">Boluri</th></tr>
+            <tr><th scope="row">Diametru decupaj</th><td>12 cm</td><td>14 cm</td><td>19 cm</td></tr>
+            <tr><th scope="row">Diametru bol</th><td>14 cm</td><td>16 cm</td><td>21 cm</td></tr>
+          </tbody>
+          <tbody>
+            <tr class="grp"><th scope="rowgroup" colspan="4">Greutate</th></tr>
+            <!-- Greutatea pentru S lipsește din fișă -->
+            <tr><th scope="row">Cu ambele boluri</th><td>-</td><td>1,7 kg</td><td>2,7 kg</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <dl class="common">
+        <div><dt>Material</dt><dd>Oțel carbon, ~2 mm</dd></div>
+        <div><dt>Finisaj</dt><dd>Vopsit electrostatic, negru mat</dd></div>
+        <div><dt>Boluri</dt><dd>Inox, două incluse, detașabile</dd></div>
+        <div><dt>Execuție</dt><dd>Tăiat CNC laser, logo LM decupat</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Craft -->
+  <section class="craft" aria-labelledby="craftH">
+    <img id="craftImg" src="assets/mowgli-m-4.jpg" alt="Colțul suportului cu logo-ul LM LUMINISHA decupat cu laserul" loading="lazy" width="1800" height="1200">
+    <div class="craft-plate">
+      <h2 class="h2" id="craftH">Tăiat cu lumină.</h2>
+      <p>Fiecare piesă este realizată prin CNC laser, unde lumina controlată definește cu precizie forma, muchiile și proporțiile. Un obiect LUMINISHA nu încarcă spațiul, îl limpezește.</p>
+    </div>
+  </section>
+
+  <!-- Origin story -->
+  <section class="origin" aria-labelledby="originH">
+    <img class="origin-img" src="assets/mowgli-l-6.jpg" alt="Mowgli fără boluri: o singură foaie de oțel, tăiată cu laserul și îndoită" loading="lazy" width="1800" height="1200">
+    <div class="wrap origin-body">
+      <h2 class="h2" id="originH">Povestea lui Mowgli</h2>
+      <div class="prose">
+          <p class="lead">LUMINISHA a pornit de la John. Fizician de formație, a avut grijă de-a lungul timpului de zeci de pisici și căței, fiecare cu povestea lui și cu nevoia lui de încredere.</p>
+          <p>Mowgli s-a născut din ce vedea zi de zi, la ora mesei: animăluțe care se apleacă prea mult, boluri care pleacă la plimbare prin bucătărie, un colț de hrănire care nu se potrivește cu restul casei. Răspunsul a fost un obiect simplu: o foaie de oțel tăiată cu lumină și îndoită, care ridică bolurile și le ține pe loc.</p>
+          <!-- DE CONFIRMAT: originea numelui -->
+          <p>Numele vine de la băiatul crescut printre animale din Cartea Junglei. Un obiect gândit pentru ei, care își găsește firesc locul în casa oamenilor.</p>
+          <p class="signoff">Pentru oameni. Pentru animale. Pentru viață.</p>
+        <div class="made">
+          <span class="made-mark" aria-hidden="true">RO</span>
+          <div><b>Fabricat în România</b><span>Gândit, tăiat cu laserul și finisat aici, piesă cu piesă.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="related" aria-labelledby="relH">
+    <div class="wrap">
+      <div class="rel-head">
+        <h2 class="h2" id="relH">Din aceeași casă</h2>
+        <a href="#">Toate produsele</a>
+      </div>
+      <!-- TODO: adaugă fotografii pentru Sky, Kiriko și Chippy când sunt gata -->
+      <ul class="rel-list">
+        <li><a href="#"><span><span class="rel-name">Sky</span><span class="rel-kind">Șezlong pentru pisici și căței</span></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        <li><a href="#"><span><span class="rel-name">Kiriko</span><span class="rel-kind">Suport accesorii pentru căței</span></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        <li><a href="#"><span><span class="rel-name">Chippy</span><span class="rel-kind">Căsuță pentru păsărele</span></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-logo"><img src="assets/logo-onyellow.png" alt="LUMINISHA, light in motion" width="495" height="165" loading="lazy"></div>
+      <div>
+        <h2>Shop</h2>
+        <ul><li><a href="#">Sky</a></li><li><a href="#">Mowgli</a></li><li><a href="#">Kiriko</a></li><li><a href="#">Chippy</a></li></ul>
+      </div>
+      <div>
+        <h2>Informații</h2>
+        <ul><li><a href="#">Despre</a></li><li><a href="#">Contact</a></li><li><a href="#">Livrare și retur</a></li><li><a href="#">Termeni și condiții</a></li><li><a href="#">Politica cookies</a></li><li><a href="#">Politica GDPR</a></li></ul>
+      </div>
+      <div>
+        <h2>Social</h2>
+        <ul><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">TikTok</a></li><li><a href="#">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 LUMINISHA. Fabricat în România.</span>
+      <nav aria-label="Protecția consumatorului">
+        <a href="https://anpc.ro/" rel="noopener">ANPC</a>
+        <a href="https://anpc.ro/ce-este-sal/" rel="noopener">Soluționarea alternativă a litigiilor</a>
+        <a href="https://ec.europa.eu/consumers/odr" rel="noopener">Soluționarea online a litigiilor</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="buybar" id="buybar" aria-hidden="true">
+  <div class="bb-meta"><div class="bb-name">Mowgli <span id="bbSize">M</span></div><div class="bb-price num" id="bbPrice">229 lei</div></div>
+  <button class="btn" type="button" id="bbAdd" tabindex="-1"><span class="btn-label"><i class="ph ph-handbag" aria-hidden="true"></i>Adaugă în coș</span><span class="btn-done" aria-hidden="true"><i class="ph ph-check" aria-hidden="true"></i>Adăugat</span></button>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerH" hidden inert>
+  <div class="drawer-head">
+    <h2 id="drawerH">Coșul tău</h2>
+    <button class="icon-btn" type="button" id="drawerClose" aria-label="Închide coșul"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot">
+    <div class="subtotal"><span>Subtotal</span><span class="num" id="subtotal">0 lei</span></div>
+    <small>Costul livrării se calculează la finalizarea comenzii.</small>
+    <a class="btn btn-dark" href="#">Finalizează comanda</a>
+  </div>
+</aside>
+
+<dialog class="lightbox" id="lightbox" aria-label="Fotografie mărită">
+  <img class="lb-img" id="lbImg" src="assets/mowgli-m-1.jpg" alt="">
+  <button class="icon-btn lb-close" type="button" id="lbClose" aria-label="Închide"><i class="ph ph-x" aria-hidden="true"></i></button>
+  <button class="icon-btn lb-prev" type="button" id="lbPrev" aria-label="Fotografia anterioară"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+  <button class="icon-btn lb-next" type="button" id="lbNext" aria-label="Fotografia următoare"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+</dialog>
+
+<script>
+(() => {
+  /* PREȚURI PLACEHOLDER (lei). Înlocuiește cu prețurile reale. */
+  const SIZES = {
+    s:{ key:'s', label:'S', price:189, len:33,   wid:18.5, hf:6,  hb:9,  hole:12, bowl:14, weight:null,
+        imgs:['mowgli-s-1','mowgli-s-2','mowgli-s-5','mowgli-s-6','mowgli-s-4','mowgli-s-7','spec-s'] },
+    m:{ key:'m', label:'M', price:229, len:37.5, wid:20.5, hf:10, hb:13, hole:14, bowl:16, weight:1.7,
+        imgs:['mowgli-m-1','mowgli-m-2','mowgli-m-3','mowgli-m-6','mowgli-m-4','mowgli-m-5','spec-m'] },
+    l:{ key:'l', label:'L', price:279, len:46.5, wid:25,   hf:15, hb:18, hole:19, bowl:21, weight:2.7,
+        imgs:['mowgli-l-1','mowgli-l-2','mowgli-l-3','mowgli-l-6','mowgli-l-4','mowgli-l-5','spec-l'] }
+  };
+  const ORDER = ['s','m','l'];
+  const ALTS = [
+    s => `Mowgli ${s} văzut din unghi, cu două boluri din inox`,
+    s => `Mowgli ${s} văzut din față`,
+    s => `Mowgli ${s} din profil, cu blatul înclinat spre animal`,
+    s => `Mowgli ${s} fără boluri, cu decupajele tăiate laser`,
+    s => `Detaliu Mowgli ${s}: logo-ul LM decupat în colț`,
+    s => `Mowgli ${s} văzut de jos, din unghi`,
+    s => `Fișa tehnică Mowgli ${s}, cu dimensiunile`
+  ];
+  const BENEFITS = [
+    { t:'Masa vine mai aproape de el', d:'Bolurile sunt ridicate la o înălțime mai potrivită, pentru ca animăluțul să ajungă mai ușor la hrană și apă, într-o poziție mai naturală și confortabilă.', img:1 },
+    { t:'Mai puțină aplecare', d:'Un avantaj important mai ales pentru animăluțele mai în vârstă sau pentru cele cărora le este mai dificil să se aplece.', img:5 },
+    { t:'Bolurile stau unde le este locul', d:'Suportul reduce tendința bolurilor de a se deplasa în timpul mesei.', img:0 },
+    { t:'Mai puțină dezordine pentru voi', d:'O zonă de hrănire mai bine organizată înseamnă și mai puține boluri plecate „la plimbare” prin bucătărie.', img:3 },
+    { t:'Stabil chiar și pentru cei entuziasmați de cină', d:'Construcția din oțel carbon și greutatea de aproximativ 2 kg îi oferă o stabilitate foarte bună în timpul mesei.', img:4 }
+  ];
+
+  const $ = s => document.querySelector(s);
+  const fmtCm = n => String(n).replace('.', ',');
+  const fmtLei = n => `${n.toLocaleString('ro-RO')} lei`;
+  const src = name => `assets/${name}.jpg`;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const params = new URLSearchParams(location.search);
+  let size = SIZES[params.get('marime')] ? params.get('marime') : 'm';
+  let qty = 1;
+  let cur = 0;
+
+  /* Header border on scroll */
+  const header = $('.site-header');
+  const sentinel = document.createElement('div');
+  sentinel.style.cssText = 'position:absolute;top:0;height:1px;width:1px';
+  document.body.prepend(sentinel);
+  new IntersectionObserver(([e]) => header.classList.toggle('is-scrolled', !e.isIntersecting)).observe(sentinel);
+
+  /* Gallery */
+  const track = $('#track'), thumbs = $('#thumbs');
+  let slideObs;
+  function buildGallery(){
+    const s = SIZES[size];
+    track.innerHTML = s.imgs.map((n,i) => `
+      <figure class="slide${n.startsWith('spec') ? ' is-spec' : ''}" data-i="${i}">
+        <img src="${src(n)}" alt="${ALTS[i](s.label)}" width="1800" height="1200" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async">
+      </figure>`).join('');
+    thumbs.innerHTML = s.imgs.map((n,i) => `
+      <button class="thumb" type="button" data-i="${i}" aria-label="Fotografia ${i+1} din ${s.imgs.length}" aria-current="${i===cur}">
+        <img src="assets/th/${n}.jpg" alt="" decoding="async">
+      </button>`).join('');
+    track.scrollLeft = cur * track.clientWidth;
+    slideObs?.disconnect();
+    slideObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting && e.intersectionRatio > .6) setCurrent(+e.target.dataset.i); });
+    }, { root: track, threshold: [.6] });
+    track.querySelectorAll('.slide').forEach(el => slideObs.observe(el));
+  }
+  function setCurrent(i){
+    cur = i;
+    thumbs.querySelectorAll('.thumb').forEach(t => t.setAttribute('aria-current', +t.dataset.i === i));
+    $('#prev').disabled = i === 0;
+    $('#next').disabled = i === SIZES[size].imgs.length - 1;
+    const active = thumbs.children[i];
+    if (active && thumbs.scrollWidth > thumbs.clientWidth) active.scrollIntoView({ block:'nearest', inline:'nearest', behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function goTo(i){
+    i = Math.max(0, Math.min(SIZES[size].imgs.length - 1, i));
+    track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+    setCurrent(i);
+  }
+  thumbs.addEventListener('click', e => { const b = e.target.closest('.thumb'); if (b) goTo(+b.dataset.i); });
+  $('#prev').addEventListener('click', () => goTo(cur - 1));
+  $('#next').addEventListener('click', () => goTo(cur + 1));
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(cur + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(cur - 1); }
+  });
+  addEventListener('resize', () => { track.scrollLeft = cur * track.clientWidth; });
+
+  /* Lightbox */
+  const lb = $('#lightbox'), lbImg = $('#lbImg');
+  function lbShow(i){ const s = SIZES[size]; cur = Math.max(0, Math.min(s.imgs.length - 1, i)); lbImg.src = src(s.imgs[cur]); lbImg.alt = ALTS[cur](s.label); }
+  track.addEventListener('click', e => { const f = e.target.closest('.slide'); if (!f) return; lbShow(+f.dataset.i); lb.showModal(); });
+  $('#lbClose').addEventListener('click', () => lb.close());
+  $('#lbPrev').addEventListener('click', () => lbShow(cur - 1));
+  $('#lbNext').addEventListener('click', () => lbShow(cur + 1));
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbShow(cur + 1); if (e.key === 'ArrowLeft') lbShow(cur - 1); });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === lbImg) lb.close(); });
+  lb.addEventListener('close', () => goTo(cur));
+
+  /* Benefits track */
+  const benTrack = $('#benTrack'), benBar = $('#benBar');
+  function buildBenefits(){
+    const s = SIZES[size];
+    benTrack.innerHTML = BENEFITS.map(b => `
+      <figure class="ben-card">
+        <div class="ph-img"><img src="${src(s.imgs[b.img])}" alt="${ALTS[b.img](s.label)}" loading="lazy" decoding="async" width="1800" height="1200"></div>
+        <figcaption><h3>${b.t}</h3><p>${b.d}</p></figcaption>
+      </figure>`).join('');
+    benUpdate();
+  }
+  function benStep(){ const c = benTrack.querySelector('.ben-card'); return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(benTrack).columnGap || 0) : 0; }
+  function benUpdate(){
+    const max = benTrack.scrollWidth - benTrack.clientWidth;
+    const p = max > 0 ? benTrack.scrollLeft / max : 1;
+    benBar.style.transform = `scaleX(${0.2 + p * 0.8})`;
+    $('#benPrev').disabled = benTrack.scrollLeft < 4;
+    $('#benNext').disabled = benTrack.scrollLeft > max - 4;
+  }
+  let benRaf = 0;
+  benTrack.addEventListener('scroll', () => { cancelAnimationFrame(benRaf); benRaf = requestAnimationFrame(benUpdate); }, { passive: true });
+  $('#benPrev').addEventListener('click', () => benTrack.scrollBy({ left: -benStep(), behavior: reduce ? 'auto' : 'smooth' }));
+  $('#benNext').addEventListener('click', () => benTrack.scrollBy({ left: benStep(), behavior: reduce ? 'auto' : 'smooth' }));
+  addEventListener('resize', benUpdate);
+
+  /* Drawing */
+  const NS = 'http://www.w3.org/2000/svg';
+  const K = 6.6;
+  const TOP = { cx:215, cy:150 };
+  const SIDE = { x0:500, floor:262 };
+  const el = (tag, attrs) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+  const sidePathD = s => {
+    const x0 = SIDE.x0, x1 = x0 + s.wid*K, yb = SIDE.floor - s.hb*K, yf = SIDE.floor - s.hf*K;
+    return `M${x0} ${SIDE.floor} L${x0} ${yb+3} Q${x0} ${yb} ${x0+3} ${yb} L${x1-3} ${yf} Q${x1} ${yf} ${x1} ${yf+3} L${x1} ${SIDE.floor}`;
+  };
+  const topRect = s => ({ x: TOP.cx - s.len*K/2, y: TOP.cy - s.wid*K/2, w: s.len*K, h: s.wid*K });
+  function buildGhosts(){
+    const gT = $('#ghostTop'), gS = $('#ghostSide'); gT.innerHTML = gS.innerHTML = '';
+    ORDER.forEach(k => {
+      const s = SIZES[k], r = topRect(s);
+      gT.append(el('rect', { class:'ghost', 'data-k':k, x:r.x, y:r.y, width:r.w, height:r.h, rx:3 }));
+      gS.append(el('path', { class:'ghost', 'data-k':k, d: sidePathD(s) }));
+    });
+  }
+  function dimLine(g, x1,y1,x2,y2, label, tx, ty, anchor='middle'){
+    g.append(el('line', { class:'dim', x1, y1, x2, y2 }));
+    const tick = (x,y) => { const v = x1===x2; g.append(el('line', { class:'dim', x1: v? x-4:x, y1: v? y:y-4, x2: v? x+4:x, y2: v? y:y+4 })); };
+    tick(x1,y1); tick(x2,y2);
+    const t = el('text', { class:'dim-t', x:tx, y:ty, 'text-anchor':anchor }); t.textContent = label; g.append(t);
+  }
+  function drawSize(animate){
+    const s = SIZES[size], r = topRect(s);
+    document.querySelectorAll('.ghost').forEach(g => g.style.opacity = g.dataset.k === size ? 0 : 1);
+    const rect = $('#topRect'); Object.entries({ x:r.x, y:r.y, width:r.w, height:r.h }).forEach(([k,v]) => rect.setAttribute(k, v));
+    const off = s.len*0.235*K, rh = s.hole/2*K, rb = s.bowl/2*K;
+    [['#holeA',-off],['#holeB',off]].forEach(([id,dx]) => { const c = $(id); c.setAttribute('cx', TOP.cx+dx); c.setAttribute('cy', TOP.cy); c.setAttribute('r', rh); });
+    [['#bowlA',-off],['#bowlB',off]].forEach(([id,dx]) => { const c = $(id); c.setAttribute('cx', TOP.cx+dx); c.setAttribute('cy', TOP.cy); c.setAttribute('r', rb); });
+    const path = $('#sidePath'); path.setAttribute('d', sidePathD(s));
+    const g = $('#dimsG'); g.innerHTML = '';
+    const bottom = TOP.cy + (SIZES.l.wid*K)/2 + 26;
+    dimLine(g, r.x, bottom, r.x + r.w, bottom, `${fmtCm(s.len)} cm`, TOP.cx, bottom + 18);
+    const left = TOP.cx - (SIZES.l.len*K)/2 - 20;
+    dimLine(g, left, r.y, left, r.y + r.h, `${fmtCm(s.wid)} cm`, left - 8, TOP.cy + 4, 'end');
+    const x0 = SIDE.x0, x1 = x0 + s.wid*K;
+    dimLine(g, x0 - 14, SIDE.floor, x0 - 14, SIDE.floor - s.hb*K, `${fmtCm(s.hb)} cm`, x0 - 20, SIDE.floor - s.hb*K/2 + 4, 'end');
+    dimLine(g, x1 + 14, SIDE.floor, x1 + 14, SIDE.floor - s.hf*K, `${fmtCm(s.hf)} cm`, x1 + 20, SIDE.floor - s.hf*K/2 + 4, 'start');
+    dimLine(g, x0, SIDE.floor + 22, x1, SIDE.floor + 22, `${fmtCm(s.wid)} cm`, (x0+x1)/2, SIDE.floor + 40);
+    const hole = el('text', { class:'dim-t', x: TOP.cx + off, y: TOP.cy + 4, 'text-anchor':'middle' }); hole.textContent = `Ø ${fmtCm(s.hole)}`; g.append(hole);
+    if (animate && !reduce) trace([rect, path], g);
+  }
+  let traceRun = 0;
+  function trace(paths, dims){
+    const run = ++traceRun, spark = $('#spark'), D = 1000;
+    dims.classList.add('is-hidden');
+    paths.forEach(p => {
+      const L = p.getTotalLength();
+      p.animate([
+        { strokeDasharray: L, strokeDashoffset: L, fillOpacity: 0 },
+        { strokeDasharray: L, strokeDashoffset: 0, fillOpacity: 0, offset: .82 },
+        { strokeDasharray: L, strokeDashoffset: 0, fillOpacity: 1 }
+      ], { duration: D, easing: 'cubic-bezier(.45,.05,.25,1)' });
+    });
+    const side = paths[1], L = side.getTotalLength(), t0 = performance.now();
+    const tick = now => {
+      if (run !== traceRun) return;
+      const p = Math.min(1, (now - t0) / (D * .82));
+      const e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;
+      const pt = side.getPointAtLength(e * L);
+      spark.setAttribute('cx', pt.x); spark.setAttribute('cy', pt.y);
+      spark.style.opacity = p < 1 ? 1 : 0;
+      if (p < 1) requestAnimationFrame(tick); else dims.classList.remove('is-hidden');
+    };
+    requestAnimationFrame(tick);
+  }
+  let drawingSeen = false;
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { drawingSeen = true; drawSize(true); o.disconnect(); } }, { threshold: .45 }).observe($('#drawing'));
+
+  /* Size state */
+  function syncSegs(){
+    const i = ORDER.indexOf(size);
+    document.querySelectorAll('[data-seg]').forEach(seg => {
+      seg.style.setProperty('--i', i);
+      seg.querySelectorAll('input').forEach(inp => inp.checked = inp.value === size);
+    });
+    document.querySelectorAll('#specTable [data-col]').forEach(c => c.classList.toggle('is-on', c.dataset.col === size));
+  }
+  function renderInfo(){
+    const s = SIZES[size];
+    $('#price').textContent = fmtLei(s.price);
+    $('#bbPrice').textContent = fmtLei(s.price);
+    $('#bbSize').textContent = s.label;
+    const ci = $('#craftImg'); if (ci) { ci.src = src(s.imgs[4]); ci.alt = `Colțul suportului Mowgli ${s.label}, cu logo-ul LM LUMINISHA decupat cu laserul`; }
+    $('#bowlInc').textContent = `Ø ${fmtCm(s.bowl)} cm`;
+    $('#profDims').textContent = `${s.hb} → ${s.hf} cm`;
+    const pi = $('#profImg'); pi.src = src(s.imgs[2]); pi.alt = ALTS[2](s.label);
+    $('#dims').innerHTML = `<span><b>${fmtCm(s.len)} × ${fmtCm(s.wid)}</b> cm</span><span>înălțime <b>${s.hf} → ${s.hb}</b> cm</span>${s.weight ? `<span><b>${fmtCm(s.weight)}</b> kg</span>` : ''}`;
+  }
+  function setSize(k, { fromLoad = false } = {}){
+    if (!SIZES[k]) return;
+    const changed = k !== size;
+    size = k;
+    syncSegs(); renderInfo();
+    if (!fromLoad) { const u = new URL(location); u.searchParams.set('marime', k); history.replaceState(null, '', u); }
+    if (changed || fromLoad) {
+      if (!fromLoad && !reduce) {
+        track.classList.add('is-swapping');
+        setTimeout(() => { buildGallery(); requestAnimationFrame(() => track.classList.remove('is-swapping')); }, 200);
+      } else buildGallery();
+      buildBenefits();
+      if (drawingSeen || fromLoad) drawSize(drawingSeen);
+    }
+  }
+  document.querySelectorAll('[data-seg] input').forEach(inp => inp.addEventListener('change', () => setSize(inp.value)));
+
+  /* Quantity */
+  function setQty(n){ qty = Math.max(1, Math.min(9, n)); $('#qty').textContent = qty; $('#qMinus').disabled = qty === 1; $('#qPlus').disabled = qty === 9; }
+  $('#qMinus').addEventListener('click', () => setQty(qty - 1));
+  $('#qPlus').addEventListener('click', () => setQty(qty + 1));
+
+  /* Cart */
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem('lm-cart') || '[]'); } catch {}
+  const save = () => { try { localStorage.setItem('lm-cart', JSON.stringify(cart)); } catch {} };
+  const drawer = $('#drawer'), scrim = $('#scrim');
+  let lastFocus = null;
+  function renderCart(){
+    const count = cart.reduce((a,c) => a + c.q, 0);
+    const cc = $('#cartCount');
+    cc.textContent = count; cc.classList.toggle('has-items', count > 0);
+    $('#cartBtn').setAttribute('aria-label', `Coș de cumpărături, ${count} ${count === 1 ? 'produs' : 'produse'}`);
+    const body = $('#drawerBody');
+    if (!cart.length) {
+      body.innerHTML = `<div class="empty"><i class="ph ph-handbag" aria-hidden="true"></i><p>Coșul este gol.</p><button class="btn btn-ghost" type="button" data-close>Înapoi la produs</button></div>`;
+      $('#drawerFoot').hidden = true; return;
+    }
+    $('#drawerFoot').hidden = false;
+    body.innerHTML = cart.map((c,i) => { const s = SIZES[c.k]; return `
+      <div class="line">
+        <img src="assets/th/${s.imgs[1]}.jpg" alt="" width="96" height="64">
+        <div><div class="line-name">Mowgli</div><div class="line-meta">Mărimea ${s.label} · ${c.q} buc.</div><button class="line-rm" type="button" data-rm="${i}">Elimină</button></div>
+        <div class="line-price">${fmtLei(s.price * c.q)}</div>
+      </div>`; }).join('');
+    $('#subtotal').textContent = fmtLei(cart.reduce((a,c) => a + SIZES[c.k].price * c.q, 0));
+  }
+  function openDrawer(){
+    lastFocus = document.activeElement;
+    drawer.hidden = false; drawer.inert = false;
+    requestAnimationFrame(() => { drawer.classList.add('is-on'); scrim.classList.add('is-on'); });
+    document.documentElement.style.overflow = 'hidden';
+    setTimeout(() => $('#drawerClose').focus(), 60);
+  }
+  function closeDrawer(){
+    drawer.classList.remove('is-on'); scrim.classList.remove('is-on');
+    drawer.inert = true;
+    document.documentElement.style.overflow = '';
+    setTimeout(() => { if (!drawer.classList.contains('is-on')) drawer.hidden = true; }, 450);
+    lastFocus?.focus?.();
+  }
+  $('#cartBtn').addEventListener('click', openDrawer);
+  $('#drawerClose').addEventListener('click', closeDrawer);
+  scrim.addEventListener('click', closeDrawer);
+  addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-on')) closeDrawer(); });
+  drawer.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const f = [...drawer.querySelectorAll('button, a[href]')].filter(n => !n.closest('[hidden]'));
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f.at(-1).focus(); }
+    else if (!e.shiftKey && document.activeElement === f.at(-1)) { e.preventDefault(); f[0].focus(); }
+  });
+  $('#drawerBody').addEventListener('click', e => {
+    const rm = e.target.closest('[data-rm]'); if (rm) { cart.splice(+rm.dataset.rm, 1); save(); renderCart(); $('#drawerClose').focus(); }
+    if (e.target.closest('[data-close]')) closeDrawer();
+  });
+  function add(btn){
+    if (btn.classList.contains('is-done')) return;
+    const found = cart.find(c => c.k === size);
+    if (found) found.q = Math.min(9, found.q + qty); else cart.push({ k: size, q: qty });
+    save(); renderCart();
+    const cc = $('#cartCount'); cc.classList.remove('bump'); void cc.offsetWidth; cc.classList.add('bump');
+    btn.classList.add('is-done');
+    setTimeout(openDrawer, 520);
+    setTimeout(() => btn.classList.remove('is-done'), 1600);
+  }
+  $('#addBtn').addEventListener('click', e => add(e.currentTarget));
+  $('#bbAdd').addEventListener('click', e => add(e.currentTarget));
+
+  /* Mobile buy bar */
+  const bar = $('#buybar');
+  new IntersectionObserver(([e]) => {
+    const on = !e.isIntersecting;
+    bar.classList.toggle('is-on', on);
+    bar.setAttribute('aria-hidden', !on);
+    $('#bbAdd').tabIndex = on ? 0 : -1;
+  }).observe($('#addBtn'));
+
+  /* Reviews: pet names in the heading jump to their card */
+  document.querySelectorAll('.rev-names button').forEach(b => b.addEventListener('click', () => {
+    const card = document.getElementById('pet-' + b.dataset.pet);
+    if (!card) return;
+    card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
+    card.classList.remove('is-hit'); void card.offsetWidth; card.classList.add('is-hit');
+  }));
+
+  /* Init */
+  buildGhosts();
+  setSize(size, { fromLoad: true });
+  setQty(1);
+  renderCart();
+})();
+</script>
+</body>
+</html>

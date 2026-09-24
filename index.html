@@ -341,10 +341,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
 /* ---------- Origin story (full-bleed image + text) + made in Romania ---------- */
 .origin{background:#fff}
-.origin-img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 55%;background:#fff}
-@media (max-width:767px){.origin-img{aspect-ratio:4/3}}
-.origin-body{display:grid;gap:40px;padding-block:clamp(56px,7vw,104px) clamp(96px,12vw,168px)}
-@media (min-width:1024px){.origin-body{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,6vw,104px);align-items:start}.origin-body .h2{position:sticky;top:calc(var(--header) + 32px)}}
+.origin-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 50%;background:#fff;margin-top:clamp(28px,3vw,44px)}
+.origin-body{display:grid;gap:40px;padding-block:clamp(88px,11vw,160px)}
+@media (min-width:1024px){.origin-body{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,6vw,104px);align-items:start}.origin-aside{position:sticky;top:calc(var(--header) + 32px)}}
 .signoff{margin:8px 0 0;font-stretch:118%;font-weight:780;font-size:clamp(1.3rem,2vw,1.6rem);letter-spacing:-.02em}
 .made{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-top:44px;background:var(--yellow);padding:22px 24px;border-radius:var(--r)}
 .made-mark{width:68px;height:68px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-stretch:125%;font-weight:850;font-size:17px}
@@ -723,9 +722,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
   <!-- Origin story -->
   <section class="origin" aria-labelledby="originH">
-    <img class="origin-img" src="assets/mowgli-l-6.jpg" alt="Mowgli fără boluri: o singură foaie de oțel, tăiată cu laserul și îndoită" loading="lazy" width="1800" height="1200">
     <div class="wrap origin-body">
-      <h2 class="h2" id="originH">Povestea lui Mowgli</h2>
+      <div class="origin-aside">
+        <h2 class="h2" id="originH">Povestea lui Mowgli</h2>
+        <img class="origin-img" src="assets/mowgli-l-6.jpg" alt="Mowgli fără boluri: o singură foaie de oțel, tăiată cu laserul și îndoită" loading="lazy" width="1800" height="1200">
+      </div>
       <div class="prose">
           <p class="lead">LUMINISHA a pornit de la John. Fizician de formație, a avut grijă de-a lungul timpului de zeci de pisici și căței, fiecare cu povestea lui și cu nevoia lui de încredere.</p>
           <p>Mowgli s-a născut din ce vedea zi de zi, la ora mesei: animăluțe care se apleacă prea mult, boluri care pleacă la plimbare prin bucătărie, un colț de hrănire care nu se potrivește cu restul casei. Răspunsul a fost un obiect simplu: o foaie de oțel tăiată cu lumină și îndoită, care ridică bolurile și le ține pe loc.</p>
